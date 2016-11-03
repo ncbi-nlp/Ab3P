@@ -7,7 +7,7 @@ OS=-g
 .KEEP_STATE:
 
 %:%.o
-	g++ $(OS) -o $@ $< -L$(LIBPATH) -lAb3P -L$(NCBITEXTLIB)/lib -lops
+	g++ $(OS) -o $@ $< -L$(LIBPATH) -lAb3P -L$(NCBITEXTLIB)/lib -lText
 
 %.o: %.C
 	g++ -c $(OS) -I$(LIBPATH) -I$(NCBITEXTLIB)/include $< -o $@

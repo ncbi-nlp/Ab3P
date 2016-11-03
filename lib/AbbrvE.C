@@ -1,6 +1,8 @@
 #include "AbbrvE.h"
 #include <sstream>
 #include <cassert>
+#include <cstdlib>
+#include <cstring>
 
 namespace iret {
 

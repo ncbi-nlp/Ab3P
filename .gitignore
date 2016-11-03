@@ -1,1 +1,9 @@
+*.a
+*.o
 *~
+
+WordData/cshset_*
+WordData/hshset_*
+identify_abbr
+make_wordCountHash
+make_wordSet
