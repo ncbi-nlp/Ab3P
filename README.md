@@ -47,6 +47,20 @@ the data files.
 identification program on our gold standard and compares your
 results to our results.  They should be identical.
 
+### Setting up on macOS:
+
+Some extra work is necessary to get Ab3P to work on macOS. This is because apple makes `g++` an alias for `clang++` and although `clang` is meant as a drop-in replacement for `gcc`, in this case the compilation fails (because of a problem in NCBITextLib). Even if the problem is resolved (see pull request on that library), the resulting executable does not work as intended.
+
+Instead, instal gcc (with homebrew - https://brew.sh/, simply do `brew install gcc`) and then modify the makefiles, replacing "g++" by the path to the actual g++ binary. For example:
+
+```makefile
+%:%.o
+	/usr/local/Cellar/gcc/8.3.0/bin/g++-8   $(OS) -o $@ $< -L$(LIBPATH) -lAb3P -L$(NCBITEXTLIB)/lib -lText
+```
+
+Compilation and execution should then work as expected.
+
+
 ## Usage ##
 
 To identify SF-LF pairs from free text use the command  
