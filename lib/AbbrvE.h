@@ -82,7 +82,7 @@ public:
   void flag_seq( const vector<Pot_Abbr> & abb );
 
   // true if good SF, false if part of sequence
-  bool rate( int i ) const { my_rate[i]; }
+  bool rate( int i ) const { return my_rate[i]; }
 
 private:
   void find_seq( const vector<string> & seq );

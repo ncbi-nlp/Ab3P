@@ -20,7 +20,7 @@ static void chomp(char *line)
 	int     i;
 
 	i = strlen(line) - 1;
-	while (i >= 0 && line[i] == '\n' || line[i] == '\r')
+	while (i >= 0 && (line[i] == '\n' || line[i] == '\r'))
 		line[i--] = '\0';
 }
 
