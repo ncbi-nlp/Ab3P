@@ -1,4 +1,4 @@
-NCBITEXTLIB=** location of NCBITextLib **
+NCBITEXTLIB=../../NCBITextLib
 SRC_DIR=./
 TRASHFILES = *.o *~ *.bak core *.a
 LIB_INC=-I. -I$(NCBITEXTLIB)/include

@@ -1,4 +1,4 @@
-NCBITEXTLIB=** location of NCBITextLib **
+NCBITEXTLIB=../NCBITextLib
 LIBPATH=./lib
 OS=-g
 # OS=-O
@@ -10,7 +10,7 @@ OS=-g
 	g++ $(OS) -o $@ $< -L$(LIBPATH) -lAb3P -L$(NCBITEXTLIB)/lib -lText
 
 %.o: %.C
-	g++ -c $(OS) -I$(LIBPATH) -I$(NCBITEXTLIB)/include $< -o $@
+	g++ -c -fpic $(OS) -I$(LIBPATH) -I$(NCBITEXTLIB)/include $< -o $@
 
 all:
 	make programs
@@ -21,6 +21,7 @@ programs:
 	make make_wordSet
 	make make_wordCountHash
 	make identify_abbr
+	make wrapper.o
 
 library:
 	cd lib; make
@@ -48,3 +49,4 @@ identify_abbr:		identify_abbr.o lib/libAb3P.a
 identify_abbr.o:	lib/Ab3P.h
 identify_abbr_loc:	identify_abbr.o lib/libAb3P.a
 identify_abbr_loc.o:	lib/Ab3P.h
+wrapper.o:	lib/Ab3P.h
